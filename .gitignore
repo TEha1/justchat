@@ -1,0 +1,6 @@
+*.pyc
+.idea
+.vscode/
+staticfiles/
+__pycache__/
+*.pyo
