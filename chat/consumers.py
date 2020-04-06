@@ -14,7 +14,9 @@ class ChatConsumer(WebsocketConsumer):
 
     def fetch_messages(self, data):
         messages = Message.last_10_messages(data)
+        print('messages = ', self.messages_to_json(messages))
         content = {
+            'command': 'messages',
             'messages': self.messages_to_json(messages)
         }
         self.send_message(content)
@@ -31,11 +33,11 @@ class ChatConsumer(WebsocketConsumer):
         }
         self.send_chat_message(content)
 
-
     def messages_to_json(self, messages):
         result = []
         for message in messages:
             result.append(self.message_to_json(message))
+        return result
 
     def message_to_json(self, message):
         return {
