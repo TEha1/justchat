@@ -118,14 +118,12 @@
     chatSocket.onmessage = function (e) {
         var data = JSON.parse(e.data);
         var message = data['message'];
-        var author = data['author'];
+        var author = message['author'];
         var msgListTag = document.createElement('li');
         var imgTag = document.createElement('img');
         var pTag = document.createElement('p');
         pTag.textContent = message.content;
         imgTag.src = 'http://emilcarlsson.se/assets/mikeross.png';
-        console.log("author = ", author);
-        console.log("username = ", username);
         if (author === username) {
             msgListTag.className = 'sent';
         } else {
