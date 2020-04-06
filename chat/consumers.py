@@ -31,7 +31,6 @@ class ChatConsumer(WebsocketConsumer):
         }
         self.send_chat_message(content)
 
-        pass
 
     def messages_to_json(self, messages):
         result = []
