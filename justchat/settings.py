@@ -121,7 +121,6 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # ------------------------------------------------------------------------------
 # STATIC
 # ------------------------------------------------------------------------------
@@ -143,3 +142,5 @@ STATICFILES_FINDERS = [
 MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'staticfiles', 'media')
 # https://docs.djangoproject.com/en/dev/ref/settings/#media-url
 MEDIA_URL = "/media/"
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
